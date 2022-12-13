@@ -66,6 +66,26 @@ body {
   border-radius: 4px;
 }
 
+.exibir-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.exibir-senha {
+  display: flex;
+}
+
+.exibir-senha p {
+  margin: auto;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.exibir-group a {
+  text-decoration: none;
+}
+
 .btn {
   height: 40px;
   width: 100%;
