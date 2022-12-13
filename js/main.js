@@ -23,7 +23,15 @@ var listaDeFuncionarios = [
 ];
 
 function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
-  console.log(`Olá ${emailDigitadoNoFormulario}, você está tentando logar com a senha ${senhaDigitadaNoFormulario}`);
+  var usuarioValido = listaDeFuncionarios.find(function (funcionario, posicaoNaLista) {
+    return funcionario.email == emailDigitadoNoFormulario && funcionario.password == senhaDigitadaNoFormulario;
+  });
+
+  if (usuarioValido) {
+    console.log('Usuário foi encontrado.');
+  } else {
+    console.log('Usuário não encontrado.');
+  }
 }
 
 $(document).ready(function () {
@@ -33,17 +41,7 @@ $(document).ready(function () {
     var emailDigitado = $('#inputEmail').val();
     var senhaDigitada = $('#inputPassword').val();
 
-    // fazerLogin(emailDigitado, senhaDigitada);
-
-    if (emailDigitado == listaDeFuncionarios[0].email) {
-      console.log('Email encontrado na lista 0');
-    } else if (emailDigitado == listaDeFuncionarios[1].email) {
-      console.log('Email encontrado na lista 1');
-    } else if (emailDigitado == listaDeFuncionarios[2].email) {
-      console.log('Email encontrado na lista 2');
-    } else {
-      console.log('Email não encontrado na lista');
-    }
+    fazerLogin(emailDigitado, senhaDigitada);
   });
 
   // EXIBIR SENHA DO FORMULÁRIO
