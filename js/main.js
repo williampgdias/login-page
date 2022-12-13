@@ -22,15 +22,32 @@ var listaDeFuncionarios = [
   },
 ];
 
+verificaSeOUsuarioEstaLogado();
+
 function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
   var usuarioValido = listaDeFuncionarios.find(function (funcionario, posicaoNaLista) {
     return funcionario.email == emailDigitadoNoFormulario && funcionario.password == senhaDigitadaNoFormulario;
   });
 
   if (usuarioValido) {
-    console.log('Usuário foi encontrado.');
+    salvarUsuario(usuarioValido);
+    document.location = 'lista-de-usuarios.html';
   } else {
     console.log('Usuário não encontrado.');
+  }
+}
+
+function salvarUsuario(usuario) {
+  var usuarioJSON = JSON.stringify(usuario);
+
+  localStorage.setItem('usuarioLogado', usuarioJSON);
+}
+
+function verificaSeOUsuarioEstaLogado() {
+  var usuarioLogado = localStorage.getItem('usuarioLogado');
+
+  if (usuarioLogado) {
+    // document.location = 'lista-de-usuarios.html';
   }
 }
 
