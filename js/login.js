@@ -25,7 +25,7 @@ var listaDeFuncionarios = [
 verificaSeOUsuarioEstaLogado();
 
 function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
-  var usuarioValido = listaDeFuncionarios.find(function (funcionario, posicaoNaLista) {
+  var usuarioValido = listaDeFuncionarios.find(function (funcionario) {
     return funcionario.email == emailDigitadoNoFormulario && funcionario.password == senhaDigitadaNoFormulario;
   });
 
@@ -33,7 +33,11 @@ function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
     salvarUsuario(usuarioValido);
     document.location = 'lista-de-usuarios.html';
   } else {
-    console.log('Usuário não encontrado.');
+    $('#form-login-alert-error').css('display', 'block');
+
+    setTimeout(function () {
+      $('#form-login-alert-error').css('display', 'none');
+    }, 5000);
   }
 }
 
@@ -47,7 +51,7 @@ function verificaSeOUsuarioEstaLogado() {
   var usuarioLogado = localStorage.getItem('usuarioLogado');
 
   if (usuarioLogado) {
-    // document.location = 'lista-de-usuarios.html';
+    document.location = 'lista-de-usuarios.html';
   }
 }
 
