@@ -2,14 +2,14 @@ verificaSeOUsuarioEstaLogado();
 
 function logout() {
   localStorage.removeItem('usuarioLogado');
-  document.location = 'login.html';
+  document.location = 'index.html';
 }
 
 function verificaSeOUsuarioEstaLogado() {
   var usuarioLogado = localStorage.getItem('usuarioLogado');
 
   if (!usuarioLogado) {
-    document.location = 'login.html';
+    document.location = 'index.html';
   }
 }
 
