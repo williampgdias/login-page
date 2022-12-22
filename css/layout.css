@@ -30,9 +30,9 @@ body {
 .main-nav .links a {
   text-decoration: none;
   color: #fff;
+  margin-left: 20px;
 }
 
 .main-nav .links #userLogged {
-  margin-right: 20px;
   font-weight: bold;
 }
